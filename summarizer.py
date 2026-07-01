@@ -2,12 +2,10 @@ import os
 try:
     import streamlit as st
     QWEN_API_KEY = st.secrets.get("QWEN_API_KEY", os.getenv("QWEN_API_KEY"))
-    S2_API_KEY = st.secrets.get("SEMANTIC_SCHOLAR_API_KEY", os.getenv("SEMANTIC_SCHOLAR_API_KEY"))
 except:
     from dotenv import load_dotenv
     load_dotenv()
     QWEN_API_KEY = os.getenv("QWEN_API_KEY")
-    S2_API_KEY = os.getenv("SEMANTIC_SCHOLAR_API_KEY")
 
 from openai import OpenAI
 
@@ -20,17 +18,19 @@ client = OpenAI(
 
 def summarize_paper(title, abstract, lang="id"):
     if not abstract:
-        return "Abstrak tidak tersedia."
+        if lang == "id":
+            return "📋 Abstrak tidak tersedia untuk paper ini."
+        return "📋 No abstract available for this paper."
     
     if lang == "id":
-        prompt = f"""Ringkas paper akademik berikut dalam 2-3 kalimat bahasa Indonesia:
+        prompt = f"""Ringkas paper akademik berikut dalam 2-3 kalimat bahasa Indonesia yang mudah dipahami mahasiswa:
 
 Judul: {title}
 Abstrak: {abstract}
 
 Ringkasan:"""
     else:
-        prompt = f"""Summarize this academic paper in 2-3 sentences:
+        prompt = f"""Summarize this academic paper in 2-3 clear sentences for students:
 
 Title: {title}
 Abstract: {abstract}
@@ -45,4 +45,13 @@ Summary:"""
         )
         return response.choices[0].message.content.strip()
     except Exception as e:
-        return f"[Ringkasan belum tersedia. Abstrak: {abstract[:200]}...]"
+        # Placeholder mode - tampilkan abstrak yang sudah dipotong rapi
+        if abstract:
+            sentences = abstract.split('. ')
+            short = '. '.join(sentences[:2]) + '.'
+            if lang == "id":
+                return f"⚡ {short}"
+            return f"⚡ {short}"
+        if lang == "id":
+            return "📋 Ringkasan tidak tersedia."
+        return "📋 Summary not available."
