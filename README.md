@@ -144,10 +144,8 @@ The paper and summary are stored in SQLite for later access.
 <img width="1536" height="1024" alt="Project_Diagram" src="https://github.com/user-attachments/assets/bf148539-0f59-47d0-a2f0-cfbd744882bf" />
 
 # Architecture Diagram
+<img width="1122" height="1402" alt="file_00000000daa87243b81dc64b4e8fe818" src="https://github.com/user-attachments/assets/2dbd5b8b-6139-4237-a1c5-28bee47df9c8" />
 
-<img width="1122" height="1402" alt="Architecture_Diagram" src="https://github.com/user-attachments/assets/52035d0e-e5d5-4c6c-af42-c79592166cae" />
-
----
 
 # Troubleshooting
 
