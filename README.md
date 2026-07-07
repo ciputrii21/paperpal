@@ -1,15 +1,15 @@
 # PaperPal
 
-AI-powered research assistant built with **Qwen Cloud** for searching, analyzing, and chatting with academic papers.
+AI-powered research assistant built with **Qwen Cloud** for searching, summarizing, and remembering academic papers.
 
 ## Features
 
 - 🔍 Search academic papers using Semantic Scholar
-- 📄 Generate concise AI summaries
-- 💬 Chat with papers using Qwen
+- 📄 Generate concise AI summaries with Qwen
 - 🧠 Persistent conversation memory
-- 📚 Compare multiple papers
 - ⚡ Fast Streamlit interface
+- 💾 Save papers and summaries in local SQLite memory
+- 📚 Browse previously viewed papers
 
 ---
 
@@ -124,25 +124,20 @@ streamlit run app.py
 ```
 
 Then open your browser:
-
-```
 http://localhost:8501
-```
-
 ---
 
 # How to Use
 
 1. Enter a research topic or keyword.
-2. Search for relevant papers.
+2. Search for relevant academic papers.
 3. Select a paper from the results.
-4. Generate an AI summary.
-5. Ask follow-up questions.
-6. Continue the conversation with memory across the session.
+4. View the AI-generated summary.
+5. Download the results in PDF
+
+The paper and summary are stored in SQLite for later access.
 
 ---
-
-
 
 # Project Structure
 
@@ -151,8 +146,6 @@ http://localhost:8501
 # Architecture Diagram
 
 <img width="1122" height="1402" alt="Architecture_Diagram" src="https://github.com/user-attachments/assets/52035d0e-e5d5-4c6c-af42-c79592166cae" />
-
-
 
 ---
 
@@ -177,6 +170,7 @@ Run:
 ```bash
 python -m streamlit run app.py
 ```
+
 ### PowerShell blocks virtual environment activation
 
 If you see an error similar to:
@@ -197,8 +191,6 @@ Then activate the virtual environment again:
 .venv\Scripts\activate
 ```
 
-
-
 ---
 
 # Technologies
@@ -211,6 +203,6 @@ Then activate the virtual environment again:
 
 ---
 
-# License
+## License
 
-This project is released under the MIT License.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
